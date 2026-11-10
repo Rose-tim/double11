@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双11狂欢购物节 · 全场5折起</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍</text></svg>">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- ========== 顶部导航栏 ========== -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark">双11</span>
+                <span class="logo-text">狂欢购物节</span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">首页</a>
+                <a href="#seckill" class="nav-link">限时秒杀</a>
+                <a href="#goods" class="nav-link">爆款好物</a>
+                <a href="#presale" class="nav-link">预售专场</a>
+                <a href="#live" class="nav-link">直播间</a>
+                <a href="#coupon" class="nav-link">领券中心</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn" aria-label="购物车">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1.5"/><circle cx="18" cy="21" r="1.5"/>
+                        <path d="M3 3h2l2.5 12.5a2 2 0 0 0 2 1.5h8a2 2 0 0 0 2-1.5L21 8H6"/>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== 首屏 Hero Banner（带轮播点） ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-tag">11.11 全球狂欢季 · 全场跨店满300减50</p>
+            <h1 class="hero-title">
+                <span class="title-line">年度最低价</span>
+                <span class="title-line accent">购物狂欢节</span>
+            </h1>
+            <p class="hero-sub">前N件5折起 · 爆款直降 · 限时免息 · 买贵退差</p>
+
+            <!-- 活动倒计时 -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item"><span class="num" id="cdDay">00</span><span class="label">天</span></div>
+                <span class="colon">:</span>
+                <div class="countdown-item"><span class="num" id="cdHour">00</span><span class="label">时</span></div>
+                <span class="colon">:</span>
+                <div class="countdown-item"><span class="num" id="cdMin">00</span><span class="label">分</span></div>
+                <span class="colon">:</span>
+                <div class="countdown-item"><span class="num" id="cdSec">00</span><span class="label">秒</span></div>
+            </div>
+            <p class="countdown-tip" id="countdownTip">距双11正式开抢仅剩</p>
+
+            <div class="hero-btns">
+                <a href="#goods" class="hero-cta">立即抢购</a>
+                <button class="hero-ghost" id="redPacketBtn">抢红包雨</button>
+            </div>
+        </div>
+        <div class="hero-deco" aria-hidden="true">
+            <span class="deco circle c1"></span>
+            <span class="deco circle c2"></span>
+            <span class="deco circle c3"></span>
+            <span class="deco star s1">★</span>
+            <span class="deco star s2">★</span>
+        </div>
+    </section>
+
+    <!-- ========== 活动玩法通栏 ========== -->
+    <section class="promo-bar">
+        <div class="promo-item">
+            <span class="promo-emoji">🎁</span>
+            <div><strong>跨店满减</strong><small>满300减50 上不封顶</small></div>
+        </div>
+        <div class="promo-item">
+            <span class="promo-emoji">💳</span>
+            <div><strong>限时免息</strong><small>花呗最高12期分期</small></div>
+        </div>
+        <div class="promo-item">
+            <span class="promo-emoji">🚚</span>
+            <div><strong>全场包邮</strong><small>偏远地区除外</small></div>
+        </div>
+        <div class="promo-item">
+            <span class="promo-emoji">💰</span>
+            <div><strong>红包雨</strong><small>整点抢最高1111元</small></div>
+        </div>
+    </section>
+
+    <!-- ========== 优惠券领取区 ========== -->
+    <section class="coupon-section" id="coupon">
+        <div class="section-head">
+            <h2>领券中心</h2>
+            <p>先领券再下单，折上折更划算</p>
+        </div>
+        <div class="coupon-list" id="couponList"></div>
+    </section>
+
+    <!-- ========== 限时秒杀区 ========== -->
+    <section class="seckill-section" id="seckill">
+        <div class="section-head">
+            <h2>限时秒杀</h2>
+            <p>整点开抢 · 售完即止 · 手慢无</p>
+        </div>
+        <div class="seckill-list" id="seckillList"></div>
+    </section>
+
+    <!-- ========== 预售专场 ========== -->
+    <section class="presale-section" id="presale">
+        <div class="section-head">
+            <h2>预售专场</h2>
+            <p>付定金立减 · 11月11日付尾款</p>
+        </div>
+        <div class="presale-list" id="presaleList"></div>
+    </section>
+
+    <!-- ========== 分类筛选 + 爆款商品 ========== -->
+    <section class="goods-section" id="goods">
+        <div class="section-head">
+            <h2>爆款好物</h2>
+            <p>跨店满减 · 官方直降 · 7天无理由退换</p>
+        </div>
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-cat="all">全部</button>
+            <button class="filter-btn" data-cat="digital">数码家电</button>
+            <button class="filter-btn" data-cat="beauty">美妆护肤</button>
+            <button class="filter-btn" data-cat="fashion">服饰鞋包</button>
+            <button class="filter-btn" data-cat="food">食品生鲜</button>
+            <button class="filter-btn" data-cat="home">家居生活</button>
+        </div>
+        <div class="goods-grid" id="goodsGrid"></div>
+    </section>
+
+    <!-- ========== 直播间专区 ========== -->
+    <section class="live-section" id="live">
+        <div class="section-head">
+            <h2>正在直播</h2>
+            <p>主播专属价 · 直播间下单再减</p>
+        </div>
+        <div class="live-list" id="liveList"></div>
+    </section>
+
+    <!-- ========== 服务保障条 ========== -->
+    <section class="service-bar">
+        <div class="service-item"><span class="svc-icon">✓</span><div><strong>全场包邮</strong><small>偏远地区除外</small></div></div>
+        <div class="service-item"><span class="svc-icon">✓</span><div><strong>7天无理由</strong><small>不满意就退</small></div></div>
+        <div class="service-item"><span class="svc-icon">✓</span><div><strong>价保双11</strong><small>买贵退差</small></div></div>
+        <div class="service-item"><span class="svc-icon">✓</span><div><strong>极速退款</strong><small>秒到账</small></div></div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 双11狂欢购物节 · 网页设计课程作品 · 仅作演示用途</p>
+    </footer>
+
+    <!-- ========== 购物车抽屉 ========== -->
+    <div class="cart-mask" id="cartMask"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>购物车 <span id="cartCount">0</span> 件商品</h3>
+            <button class="cart-close" id="cartClose">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">购物车还是空的，去挑几件好物～</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>合计：</span>
+                <strong class="cart-price" id="cartTotal">¥0.00</strong>
+            </div>
+            <div class="cart-promo" id="cartPromo"></div>
+            <button class="checkout-btn" id="checkoutBtn">去结算</button>
+        </div>
+    </aside>
+
+    <!-- ========== 新人弹窗 ========== -->
+    <div class="modal-mask" id="welcomeMask">
+        <div class="welcome-modal">
+            <button class="welcome-close" id="welcomeClose">×</button>
+            <div class="welcome-icon">🎊</div>
+            <h3>新人专享礼包</h3>
+            <p class="welcome-sub">注册即领 <strong>¥188</strong> 大礼包</p>
+            <div class="welcome-coupons">
+                <span>¥20 无门槛</span>
+                <span>¥50 满299</span>
+                <span>¥100 满599</span>
+            </div>
+            <button class="welcome-btn" id="welcomeBtn">立即领取</button>
+        </div>
+    </div>
+
+    <!-- ========== 红包雨画布 ========== -->
+    <canvas id="redPacketRain"></canvas>
+    <div class="rain-tip" id="rainTip">
+        <h3>红包雨来袭！</h3>
+        <p>点击屏幕抢红包</p>
+        <button id="rainClose">关闭</button>
+    </div>
+
+    <!-- ========== 悬浮工具组 ========== -->
+    <div class="float-tools">
+        <button class="float-btn" id="backTop" title="回到顶部">↑</button>
+        <button class="float-btn" id="floatCart" title="购物车">🛒</button>
+        <button class="float-btn" id="floatService" title="客服">💬</button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
